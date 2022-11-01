@@ -188,7 +188,7 @@ class Dataset():
             text = html.unescape(text).replace("<gap/>", "")
             gt_dict[os.path.splitext(x)[0]] = " ".join(text.split())
 
-        img_path = os.path.join(source, "images", "Lines")
+        img_path = os.path.join(source, "images")
         dataset = self._init_dataset()
 
         for i in self.partitions:
