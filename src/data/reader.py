@@ -172,14 +172,14 @@ class Dataset():
     def _bentham(self):
         """Bentham dataset reader"""
 
-        source = os.path.join(self.source, "BenthamDatasetR0-GT")
-        pt_path = os.path.join(source, "Partitions")
+        source = os.path.join(self.source, "MecWord-GT")
+        pt_path = os.path.join(source, "partitions")
 
         paths = {"train": open(os.path.join(pt_path, "TrainLines.lst")).read().splitlines(),
                  "valid": open(os.path.join(pt_path, "ValidationLines.lst")).read().splitlines(),
                  "test": open(os.path.join(pt_path, "TestLines.lst")).read().splitlines()}
 
-        transcriptions = os.path.join(source, "Transcriptions")
+        transcriptions = os.path.join(source, "transcriptions")
         gt = os.listdir(transcriptions)
         gt_dict = dict()
 
@@ -188,7 +188,7 @@ class Dataset():
             text = html.unescape(text).replace("<gap/>", "")
             gt_dict[os.path.splitext(x)[0]] = " ".join(text.split())
 
-        img_path = os.path.join(source, "Images", "Lines")
+        img_path = os.path.join(source, "images", "Lines")
         dataset = self._init_dataset()
 
         for i in self.partitions:
