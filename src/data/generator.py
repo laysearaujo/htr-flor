@@ -140,8 +140,8 @@ class Tokenizer():
             text = text.decode()
 
         # text = unicodedata.normalize("NFKD", text).encode("ASCII", "ignore").decode("ASCII")
-        text = unicodedata.normalize("NFKD", text)
-        text = text.encode('ASCII', 'ignore')
+        text = unicodedata.normalize("UTF-8", text)
+        text = text.encode('ASCII', 'strict')
         text = text.decode('UTF-8')
 
         text = " ".join(text.split())
