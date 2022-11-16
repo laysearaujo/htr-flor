@@ -139,10 +139,7 @@ class Tokenizer():
         if isinstance(text, bytes):
             text = text.decode()
 
-        # text = unicodedata.normalize("NFKD", text).encode("ASCII", "ignore").decode("ASCII")
-        text = unicodedata.normalize("UTF-8", text)
-        text = text.encode('ASCII', 'strict')
-        text = text.decode('UTF-8')
+        text = unicodedata.normalize("NFKD", text).encode("ASCII", "ignore").decode("ASCII")
 
         text = " ".join(text.split())
 
